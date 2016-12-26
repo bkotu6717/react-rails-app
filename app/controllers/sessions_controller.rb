@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 	      # Save the user id inside the browser cookie. This is how we keep the user 
 	      # logged in when they navigate around our website.
 	      session[:user_id] = user.id
+	      respoms_with_tresult()
 	      @result[:data] = user
 	      @result[:status_code] = 200
 	      @result[:success_message] = "You have successfully logged in..!!"

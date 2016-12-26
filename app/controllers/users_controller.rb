@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 		render json: @result
 	end
 
-	def dashboard
+	def following_events
 	end
 
 	private

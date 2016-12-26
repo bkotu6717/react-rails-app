@@ -8,5 +8,9 @@ class User < ApplicationRecord
 	validates :password, :confirmation => true
 	validates :password_confirmation, presence: true
 	
+	# relationships
+	has_and_belongs_to_many :events
+	
+	#bcrypt method to make sure user has hashed password
 	has_secure_password
 end
