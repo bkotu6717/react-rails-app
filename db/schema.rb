@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161226105348) do
+=======
+ActiveRecord::Schema.define(version: 20161226111409) do
+>>>>>>> change associations b/w event location and contact
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +23,15 @@ ActiveRecord::Schema.define(version: 20161226105348) do
     t.string   "name"
     t.string   "email"
     t.string   "phone"
-    t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_contacts_on_event_id", using: :btree
+  end
+
+  create_table "contacts_events", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "contact_id"
+    t.index ["contact_id"], name: "index_contacts_events_on_contact_id", using: :btree
+    t.index ["event_id"], name: "index_contacts_events_on_event_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -40,6 +49,12 @@ ActiveRecord::Schema.define(version: 20161226105348) do
     t.index ["event_id"], name: "index_events_users_on_event_id", using: :btree
     t.index ["user_id"], name: "index_events_users_on_user_id", using: :btree
   end
+  create_table "events_locations", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "location_id"
+    t.index ["event_id"], name: "index_events_locations_on_event_id", using: :btree
+    t.index ["location_id"], name: "index_events_locations_on_location_id", using: :btree
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "line1"
@@ -47,10 +62,8 @@ ActiveRecord::Schema.define(version: 20161226105348) do
     t.string   "city"
     t.string   "country"
     t.string   "pin"
-    t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_locations_on_event_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
