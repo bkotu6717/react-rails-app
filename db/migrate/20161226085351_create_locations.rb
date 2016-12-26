@@ -6,7 +6,6 @@ class CreateLocations < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :country
       t.string :pin
-      t.belongs_to :event
 
       t.timestamps
     end
