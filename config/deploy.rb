@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:railsfactory/EventsAcross.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deva/apps/EventsAcross/'
+set :deploy_to, 'path_to_deploy_location'
 
 # Default value for :scm is :git
 # set :scm, :git
