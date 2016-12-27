@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
 
   def set_response_object
   	@result = {}
-  	@result[:data] = nil
-  	@result[:error_messages] = ''
-  	@result[:success_message] = '' 
-  	@result[:status_code] = nil
-  	@result[:redirect_to] = nil
+  	@result['data'] = nil
+  	@result['error_messages'] = ''
+  	@result['success_message'] = '' 
+  	@result['status_code'] = nil
+  	@result['redirect_to'] = nil
   end
 
 end

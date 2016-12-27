@@ -9,6 +9,9 @@
   </head>
 
   <body>
-    <%= yield %>
+		<div class="container-fluid">
+      <%= react_component('Navbar') %>
+  		<%= yield %>
+  	</div>
   </body>
 </html>

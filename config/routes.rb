@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   get '/dashboard' => 'users#dashboard'
   get '/events' => 'events#index'
+  root 'events#index'
 end
