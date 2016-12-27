@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
 	def index
 		begin
-			@events = Event.all.includes(:locations)
-			@result[:data] = @events
+			@events = Event.all
+			@result[:data] = JSON.parse(@events.to_json(:include => {:locations => {:except => [:created_at,:updated_at,:id]}}))
 	    @result[:status_code] = 200
 			render json: @result
 		rescue Exception => e
