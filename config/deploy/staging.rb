@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server 'stageserver', user: 'deployea1', roles: %w{app db web}, my_property: :my_value
+server 'eventsacross-stage.railsfactory.com', user: 'deployea1', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
@@ -51,13 +51,13 @@ namespace :deploy do
 	desc 'database migration'
 	task :migration do
 		on roles(:app), in: :sequence, wait: 5 do
-			execute "cd #{release_path} && source $HOME/.rvm/scripts/rvm && RAILS_ENV=development bundle exec rake db:migrate"
+			execute "cd #{release_path} && source $HOME/.rvm/scripts/rvm && RAILS_ENV=staging bundle exec rake db:migrate"
 		end
 	end
 	desc 'Restart application'
 	task :restart do
 		on roles(:app), in: :sequence, wait: 5 do
-      execute "cd #{release_path} && source $HOME/.rvm/scripts/rvm && /etc/init.d/unicorn_event_ecross restart"
+      execute "cd #{release_path} && source $HOME/.rvm/scripts/rvm && /etc/init.d/ea_stage-unicorn restart"
     end
 	end
 end
