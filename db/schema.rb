@@ -39,17 +39,18 @@ ActiveRecord::Schema.define(version: 20161226111409) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "events_users", id: false, force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "user_id"
-    t.index ["event_id"], name: "index_events_users_on_event_id", using: :btree
-    t.index ["user_id"], name: "index_events_users_on_user_id", using: :btree
-  end
   create_table "events_locations", id: false, force: :cascade do |t|
     t.integer "event_id"
     t.integer "location_id"
     t.index ["event_id"], name: "index_events_locations_on_event_id", using: :btree
     t.index ["location_id"], name: "index_events_locations_on_location_id", using: :btree
+  end
+
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.index ["event_id"], name: "index_events_users_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_events_users_on_user_id", using: :btree
   end
 
   create_table "locations", force: :cascade do |t|
