@@ -14,7 +14,7 @@ module Searchable
     # Customize the JSON serialization for Elasticsearch
     def as_indexed_json(options={})
       self.as_json(
-        include: { locations: { only: :city} })
+        include: { locations: { :except => [:created_at,:updated_at]} })
     end
   end
 end
