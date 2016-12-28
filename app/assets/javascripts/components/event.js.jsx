@@ -8,16 +8,17 @@ var Event = React.createClass({
 
   render() {
     return (
-      <tr>
-        <td> {this.state.event.id} </td>
-        <td> {this.state.event.title} </td>
-        <td> {this.state.event.description} </td>
-        <td> <Formatdate event_date={this.state.event.starts_at} /> </td>
-        <td> <Formatdate event_date={this.state.event.ends_at} /> </td>
-        <td>
-         {(this.state.locations.length > 0) ? <Locations locations={this.state.locations}/> : 'No Location specified'}
-        </td>
-      </tr>
+
+       
+        <div className="col-md-3">
+          <div className="events">
+            <div> {this.state.event.title} </div>
+            <div> {this.state.event.description} </div>
+            <div> {this.state.event.starts_at} </div>
+            <div> {this.state.event.ends_at} </div>
+            <div>{(this.state.locations.length > 0) ? <Locations locations={this.state.locations}/> : 'No Location specified'} </div>
+          </div>
+        </div>
     );
   }
 });
