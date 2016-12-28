@@ -15,12 +15,7 @@ var Event = React.createClass({
         <td> {this.state.event.starts_at} </td>
         <td> {this.state.event.ends_at} </td>
         <td>
-          <address>
-            Visit us at:<br/>
-            Example.com<br/>
-            Box 564, Disneyland<br/>
-            Chennai<br/>
-          </address>
+         {(this.state.locations.length > 0) ? <Locations locations={this.state.locations}/> : 'No Location specified'}
         </td>
       </tr>
     );

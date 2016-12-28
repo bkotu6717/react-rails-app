@@ -1,19 +1,19 @@
 var Location = React.createClass({
   getInitialState() {
     return {
-      event: this.props.location
+      location: this.props.location
     }
   },
 
   render() {
     return (
-      <div>
-        <address>
-          {this.state.location.city}
-          {this.state.location.country}
-          {this.state.location.pin}
-        </address>
-      </div>
+      <address>
+        <strong>{this.state.location.line1}</strong><br/>
+        {this.state.location.line2}<br/>
+        {this.state.location.city}<br/>
+        {this.state.location.country}<br/>
+        {this.state.location.pin}
+      </address>
     );
   }
 });
