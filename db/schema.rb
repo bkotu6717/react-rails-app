@@ -19,15 +19,10 @@ ActiveRecord::Schema.define(version: 20161228120614) do
     t.string   "name"
     t.string   "email"
     t.string   "phone"
+    t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "contacts_events", id: false, force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "contact_id"
-    t.index ["contact_id"], name: "index_contacts_events_on_contact_id", using: :btree
-    t.index ["event_id"], name: "index_contacts_events_on_event_id", using: :btree
+    t.index ["event_id"], name: "index_contacts_on_event_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -60,8 +55,10 @@ ActiveRecord::Schema.define(version: 20161228120614) do
     t.string   "city"
     t.string   "country"
     t.string   "pin"
+    t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_locations_on_event_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
