@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   # Match unmatched routes to root route always
   match '*path' => redirect('/'), via: :get
+  post '/search' => 'events#search'
 end
