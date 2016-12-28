@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'users#dashboard'
   get '/events' => 'events#index'
   root 'events#index'
+
+  # Match unmatched routes to root route always
+  match '*path' => redirect('/'), via: :get
 end

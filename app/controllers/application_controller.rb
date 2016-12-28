@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   	@result['success_message'] = '' 
   	@result['status_code'] = nil
   	@result['redirect_to'] = nil
+    @show_header = true
   end
 
 end

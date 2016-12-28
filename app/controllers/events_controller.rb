@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 		rescue Exception => e
 			@result['error_message'] = e.message
 			@result['status_code'] = 400
+			@show_header = false
 			render component: 'Exception', props: { exception: e.message }
 		end
 	end
