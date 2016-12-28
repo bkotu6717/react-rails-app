@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/dashboard' => 'users#dashboard'
   get '/events' => 'events#index'
   root 'events#index'
+  post '/search' => 'events#search'
 end
